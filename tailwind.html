@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-sans h-screen flex flex-col overflow-hidden">
+
+  <!-- MAIN WRAPPER -->
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-[#121212] p-4 flex flex-col gap-4">
+      <!-- Logo -->
+      <div class="flex items-center gap-2 mb-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Logo" class="w-7 h-7">
+        <h1 class="font-semibold text-lg">Your Library</h1>
+      </div>
+
+      <!-- Create Playlist -->
+      <div class="bg-[#1f1f1f] rounded-lg p-4 text-sm">
+        <h2 class="font-semibold mb-1">Create your first playlist</h2>
+        <p class="text-gray-400 mb-3 text-xs">It’s easy, we’ll help you</p>
+        <button class="bg-white text-black text-sm px-3 py-1.5 rounded-full font-semibold hover:scale-105 transition">Create playlist</button>
+      </div>
+
+      <!-- Podcasts -->
+      <div class="bg-[#1f1f1f] rounded-lg p-4 text-sm">
+        <h2 class="font-semibold mb-1">Let’s find some podcasts to follow</h2>
+        <p class="text-gray-400 mb-3 text-xs">We’ll keep you updated on new episodes</p>
+        <button class="bg-white text-black text-sm px-3 py-1.5 rounded-full font-semibold hover:scale-105 transition">Browse podcasts</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 flex flex-col bg-gradient-to-b from-[#1c1c1c] to-black overflow-y-auto">
+
+      <!-- HEADER -->
+      <header class="flex justify-between items-center px-6 py-3 bg-[#121212]">
+        <div class="flex items-center gap-3">
+          <button class="bg-black p-2 rounded-full hover:bg-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <input type="text" placeholder="What do you want to play?" class="bg-[#1f1f1f] text-sm rounded-full px-4 py-2 w-72 focus:outline-none placeholder-gray-400">
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="bg-white text-black text-sm font-semibold px-4 py-1.5 rounded-full hover:scale-105 transition">Explore Premium</button>
+          <button class="bg-[#1f1f1f] text-white text-sm font-semibold px-4 py-1.5 rounded-full border border-gray-700 hover:bg-[#2a2a2a] transition">Install App</button>
+          <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center font-bold">G</div>
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <div class="p-6 space-y-8 flex-1">
+
+        <!-- Recommended -->
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Recommended for you</h2>
+            <a href="#" class="text-sm text-gray-400 hover:underline">Show all</a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- Card -->
+            <template id="card-template"></template>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">Yo Hai Haryanvi</h3>
+              <p class="text-gray-400 text-xs">Biggest Haryanvi hits from last 10 years</p>
+            </div>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">Tollywood Pearls</h3>
+              <p class="text-gray-400 text-xs">Finest Telugu music...</p>
+            </div>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">Hot Hits Hindi</h3>
+              <p class="text-gray-400 text-xs">Top trending Hindi hits...</p>
+            </div>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">Bollywood Central</h3>
+              <p class="text-gray-400 text-xs">When your heart says dance...</p>
+            </div>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">Kollywood Cream</h3>
+              <p class="text-gray-400 text-xs">Finest Tamil hits...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editor's Pick -->
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Editor’s Pick</h2>
+            <a href="#" class="text-sm text-gray-400 hover:underline">Show all</a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">All Out 00s</h3>
+              <p class="text-gray-400 text-xs">Bollywood songs that ruled Y2K</p>
+            </div>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">Bollywood & Chill</h3>
+              <p class="text-gray-400 text-xs">Sit back and relax with mellow hits</p>
+            </div>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">1 AM Feels Hindi</h3>
+              <p class="text-gray-400 text-xs">Late-night soothing Hindi tracks</p>
+            </div>
+            <div class="bg-[#1f1f1f] p-3 rounded-md hover:bg-[#2a2a2a] transition">
+              <div class="bg-gray-700 w-full h-36 rounded-md mb-3"></div>
+              <h3 class="font-semibold text-sm">Trending Love</h3>
+              <p class="text-gray-400 text-xs">India’s ultimate love playlist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- AUDIO PLAYER -->
+  <footer class="h-24 bg-[#181818] border-t border-[#282828] flex justify-between items-center px-6">
+
+    <!-- Left Section -->
+    <div class="flex items-center gap-3 w-1/3">
+      <div class="bg-gray-700 w-14 h-14 rounded-md"></div>
+      <div>
+        <h4 class="text-sm font-semibold">Song Title</h4>
+        <p class="text-xs text-gray-400">Artist Name</p>
+      </div>
+    </div>
+
+    <!-- Center Controls -->
+    <div class="flex flex-col items-center gap-2 w-1/3">
+      <div class="flex items-center gap-5">
+        <button><img src="https://www.svgrepo.com/show/533490/shuffle.svg" class="w-4 h-4 opacity-70 hover:opacity-100"></button>
+        <button><img src="https://www.svgrepo.com/show/533482/previous.svg" class="w-5 h-5 opacity-70 hover:opacity-100"></button>
+        <button class="bg-white text-black rounded-full p-2 hover:scale-110 transition">
+          <img src="https://www.svgrepo.com/show/533476/play.svg" class="w-4 h-4">
+        </button>
+        <button><img src="https://www.svgrepo.com/show/533481/next.svg" class="w-5 h-5 opacity-70 hover:opacity-100"></button>
+        <button><img src="https://www.svgrepo.com/show/533478/repeat.svg" class="w-4 h-4 opacity-70 hover:opacity-100"></button>
+      </div>
+
+      <div class="flex items-center gap-2 w-full justify-center">
+        <span class="text-xs text-gray-400">0:25</span>
+        <div class="bg-gray-600 h-1 rounded-full w-60">
+          <div class="bg-white h-1 w-20 rounded-full"></div>
+        </div>
+        <span class="text-xs text-gray-400">3:45</span>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="flex items-center justify-end gap-3 w-1/3">
+      <img src="https://www.svgrepo.com/show/533497/volume.svg" class="w-4 h-4 opacity-70 hover:opacity-100">
+      <div class="bg-gray-600 h-1 rounded-full w-24">
+        <div class="bg-white h-1 w-12 rounded-full"></div>
+      </div>
+    </div>
+
+  </footer>
+</body>
+</html>

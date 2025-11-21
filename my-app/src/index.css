@@ -1,0 +1,55 @@
+html,
+body,
+#root {
+  /* width: 100%; */
+  /* height: 100%; */
+  /* margin: 0; */
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+@import "tailwindcss";
+
+/* ✅ Fix layout changes caused by Tailwind preflight */
+@layer base {
+  /* Restore body and html defaults */
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: normal;
+  }
+
+  /* Restore box-sizing and borders */
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border: none;
+  }
+
+  /* Reset headings, paragraphs, and links to browser defaults */
+  h1, h2, h3, h4, h5, h6, p, a {
+    all: unset;
+    display: revert;
+  }
+
+  /* Make buttons behave normally */
+  button {
+    all: unset;
+    display: revert;
+    cursor: pointer;
+  }
+
+  /* Images behave normally again */
+  img {
+    display: inline-block;
+  }
+}
+
+/* ✅ Your original custom CSS (copy from your old stylesheet below) */
